@@ -35,5 +35,8 @@ def main():
     print(f"{size_util.get_full_size(data):,}")
 
 
+    size_util.report_process_mem()
+    print("DIUPA")
+
 if __name__ == '__main__':
     main()

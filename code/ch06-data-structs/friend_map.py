@@ -3,7 +3,7 @@ from collections import defaultdict
 from typing import List, Dict
 
 from person import Person
-
+    # person.id returns list of friends
 __map: Dict[int, List] = defaultdict(list)
 
 
@@ -17,6 +17,7 @@ def add_friend(person: Person, friend: Person):
         return
 
     current_friends = __map[person.id]
+    # Add weak reference to friend object to not create cycle again
     current_friends.append(weakref.ref(friend))
 
 
@@ -27,8 +28,8 @@ def is_friend(person: Person, friend: Person) -> bool:
         return True
 
     friends: List[weakref] = __map[person.id]
-    for ref in friends:
-        f: Person = ref()
+    for weak_friend_ref in friends:
+        f: Person = weak_friend_ref()
         if f and f.id == friend.id:
             return True
 

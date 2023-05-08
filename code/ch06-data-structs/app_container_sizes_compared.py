@@ -20,6 +20,7 @@ def main():
     ages: List[int] = generate_ages(count)
     names: List[str] = generate_names(count)
 
+
     print("Storing them just as lists:")
     age_size = size_util.get_full_size(ages)
     name_size = size_util.get_full_size(names)
@@ -32,7 +33,7 @@ def main():
     people = [PersonDetail(n, a) for n, a in zip(names, ages)]
     people_size = size_util.get_full_size(people)
     print(f"Cls: \t{people_size / 1024:,.0f} KB")
-
+    #
     print("Storing them as arrays:")
     ar = array.array('B')
     ar.fromlist(ages)

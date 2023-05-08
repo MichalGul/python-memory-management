@@ -1,5 +1,5 @@
+import gc
 import weakref
-
 from person import Person
 
 
@@ -18,6 +18,7 @@ def main():
     p1 = None
     p2 = None
 
+    print(gc.collect(generation=0)) # return list of uncleared objects
     print("Program closing, kthxbye!", flush=True)
 
     if w1() or w2():
