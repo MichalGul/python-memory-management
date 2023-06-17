@@ -24,6 +24,7 @@ def main():
     print()
 
     cutoff = 30
+    # przeslanie cutoff do lambda functions jako parametru
     people.sort(key=lambda p: -p.age if p.age > cutoff else p.age)
     print("Sort by age (grouped):")
     print(people)

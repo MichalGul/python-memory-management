@@ -2,6 +2,7 @@ from typing import Callable
 
 
 def main():
+    # dopóki c1 lub c2 nie zostanie wyczyszczone zmienne wewnętrzne też snie są czyszczone i dlatego ich stan jest zapamietany
     c1 = create_counter(7, 3)
     c2 = create_counter(0, 10)
 

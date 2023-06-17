@@ -19,7 +19,7 @@ def main():
     t0 = datetime.datetime.now()
 
     original = load_data(); report("Load")
-    filtered = filter_data(original); report("filtered")
+    filtered = filter_data_exx(original); report("filtered")
     scaled = scale_data(filtered, 2.718); report("scaled")
 
     # Need to work with it over and over and index it?
@@ -52,6 +52,13 @@ def filter_data(data: Iterator[int]) -> Iterator[int]:
         if n % 5 != 0:
             yield n
 
+
+def filter_data_exx(data: Iterator[int]) -> Iterator[int]:
+    # for n in data:
+    #     if n % 5 != 0:
+    #         yield n
+
+    return (n for n in data if n % 5 != 0)
 
 def scale_data(data: Iterator[int], factor: float) -> Iterator[float]:
     return (
